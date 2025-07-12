@@ -14,6 +14,14 @@ def mock_bun():
     return mock_bun
 
 @pytest.fixture(scope='function')
+def mock_ingredient():
+    mock_ingredient = Mock()
+    mock_ingredient.get_type.return_value = 'FILLING'
+    mock_ingredient.get_name.return_value = 'Meat'
+    mock_ingredient.get_price.return_value = 15
+    return mock_ingredient
+
+@pytest.fixture(scope='function')
 def testing_burger():
     burger = Burger()
 
